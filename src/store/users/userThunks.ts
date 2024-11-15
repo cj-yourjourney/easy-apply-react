@@ -7,7 +7,6 @@ export const registerUser = createGenericAsyncThunk<User, User>(
   'user/register',
   '/api/users/register/',
   'POST'
-
 )
 
 export const loginUser = createGenericAsyncThunk<LoginUser, User>(
