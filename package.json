@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "http://easy-apply-alb-10568729.us-west-1.elb.amazonaws.com/",
+  "proxy": "",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -5,9 +5,20 @@ interface ErrorResponseData {
   detail: string
 }
 
+// Define constants for the two base URLs
+const LOCAL_URL = 'http://127.0.0.1:8000'
+const PRODUCTION_URL =
+  'http://easy-apply-alb-10568729.us-west-1.elb.amazonaws.com'
+
+// Toggle between URLs here
+const BASE_URL = PRODUCTION_URL // Change to LOCAL_URL for local testing
+
+// Helper to build the full API URL
+const getFullUrl = (endpoint: string) => `${BASE_URL}${endpoint}`
+
 const createGenericAsyncThunk = <T, ReturnedType>(
   actionName: string,
-  url: string,
+  endpoint: string, // Use endpoint instead of full URL
   method: 'POST' | 'GET' | 'PUT' | 'DELETE' = 'POST'
 ) => {
   return createAsyncThunk<ReturnedType, T>(
@@ -17,6 +28,7 @@ const createGenericAsyncThunk = <T, ReturnedType>(
       const config = createConfig(token)
 
       try {
+        const url = getFullUrl(endpoint) // Construct full URL dynamically
         const response = await performApiCall(method, url, payload, config)
         return response.data
       } catch (error) {
