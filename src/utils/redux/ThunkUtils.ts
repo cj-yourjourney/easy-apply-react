@@ -7,8 +7,7 @@ interface ErrorResponseData {
 
 // Define constants for the two base URLs
 const LOCAL_URL = 'http://127.0.0.1:8000'
-const PRODUCTION_URL =
-  'http://easy-apply-alb-10568729.us-west-1.elb.amazonaws.com'
+const PRODUCTION_URL = 'http://35.167.152.67'
 
 // Toggle between URLs here
 const BASE_URL = PRODUCTION_URL // Change to LOCAL_URL for local testing
